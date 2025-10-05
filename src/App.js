@@ -21,7 +21,7 @@ const AmenitiesCarousel = () => {
   return (
     <section style={{padding: '4rem 2rem', backgroundColor: 'white'}}>
       <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-        <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>
+        <h2 style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>
           Amenidades de Habitaciones
         </h2>
         <div style={{position: 'relative', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)'}}>
@@ -70,7 +70,7 @@ const ExperiencesCarousel = () => {
   return (
     <section style={{padding: '4rem 2rem', backgroundColor: '#001F3F', color: '#F9F5E7'}}>
       <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-        <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '3rem'}}>
+        <h2 style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', marginBottom: '3rem'}}>
           Experiencias Únicas
         </h2>
         <div style={{position: 'relative', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.3)'}}>
@@ -101,23 +101,23 @@ const ExperiencesCarousel = () => {
 function App() {
   return (
     <div>
-      <nav style={{position: 'fixed', top: 0, width: '100%', backgroundColor: '#001F3F', padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 1000, boxShadow: '0 2px 10px rgba(0,0,0,0.3)'}}>
-        <div style={{fontSize: '1.8rem', fontWeight: 'bold', color: '#C89F5D'}}>VistaBella</div>
-        <button style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: '0.5rem 0.8rem', border: 'none', borderRadius: '20px', fontWeight: 'bold', cursor: 'pointer', fontSize: '0.85rem', position: 'relative', right: '4rem'}}>Reservar</button>
+      <nav style={{position: 'fixed', top: 0, width: '100%', backgroundColor: '#001F3F', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 1000, boxShadow: '0 2px 10px rgba(0,0,0,0.3)'}}>
+        <div style={{fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', fontWeight: 'bold', color: '#C89F5D'}}>VistaBella</div>
+        <button style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: '0.5rem 0.8rem', border: 'none', borderRadius: '20px', fontWeight: 'bold', cursor: 'pointer', fontSize: 'clamp(0.7rem, 2vw, 0.85rem)', position: 'relative', right: 'clamp(1rem, 8vw, 4rem)'}}>Reservar</button>
       </nav>
 
       <section style={{height: '100vh', backgroundImage: 'url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&h=1080&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: '#F9F5E7'}}>
         <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 31, 63, 0.6)'}}></div>
         <div style={{position: 'relative', zIndex: 1}}>
-          <h1 style={{fontSize: '4rem', fontWeight: 'bold', marginBottom: '1rem'}}>Hotel <span style={{color: '#C89F5D'}}>VistaBella</span></h1>
-          <p style={{fontSize: '1.3rem', marginBottom: '2rem', opacity: 0.9}}>Vive el lujo frente al mar</p>
-          <button style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: '1rem 2rem', border: 'none', borderRadius: '30px', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer'}}>Explorar Hotel</button>
+          <h1 style={{fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: 'bold', marginBottom: '1rem'}}>Hotel <span style={{color: '#C89F5D'}}>VistaBella</span></h1>
+          <p style={{fontSize: 'clamp(1rem, 3vw, 1.3rem)', marginBottom: '2rem', opacity: 0.9}}>Vive el lujo frente al mar</p>
+          <button style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: 'clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem)', border: 'none', borderRadius: '30px', fontSize: 'clamp(1rem, 2.5vw, 1.1rem)', fontWeight: 'bold', cursor: 'pointer'}}>Explorar Hotel</button>
         </div>
       </section>
 
       <section style={{padding: '4rem 2rem', backgroundColor: '#F9F5E7'}}>
         <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-          <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Nuestras Habitaciones</h2>
+          <h2 style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Nuestras Habitaciones</h2>
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'}}>
             {['Suite Presidencial', 'Habitación Deluxe', 'Vista al Mar'].map((room, i) => (
               <div key={i} style={{backgroundColor: 'white', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.25)', transition: 'transform 0.3s ease'}}>
@@ -168,7 +168,7 @@ function App() {
       <section style={{padding: '4rem 2rem', backgroundColor: 'white'}}>
         <div style={{maxWidth: '1200px', margin: '0 auto'}}>
           <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Nuestra Ubicación</h2>
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center'}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center'}}>
             <div>
               <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#001F3F', marginBottom: '1rem'}}>Santa Marta, Colombia</h3>
               <p style={{color: '#666', marginBottom: '1rem'}}>Ubicado en la hermosa costa caribeña de Santa Marta, nuestro hotel ofrece acceso directo a las mejores playas y atracciones de la región.</p>
@@ -189,7 +189,7 @@ function App() {
         <div style={{maxWidth: '800px', margin: '0 auto'}}>
           <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '2rem'}}>Reserva tu Estadía</h2>
           <div style={{backgroundColor: 'rgba(249, 245, 231, 0.1)', padding: '2rem', borderRadius: '20px', border: '1px solid rgba(249, 245, 231, 0.2)'}}>
-            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem'}}>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginBottom: '2rem'}}>
               <div>
                 <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: 'bold'}}>Check-in</label>
                 <input type="date" style={{width: '100%', padding: '0.8rem', borderRadius: '10px', border: '1px solid rgba(249, 245, 231, 0.3)', backgroundColor: 'rgba(249, 245, 231, 0.2)', color: '#F9F5E7'}} />
