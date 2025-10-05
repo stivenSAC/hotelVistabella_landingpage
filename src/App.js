@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const AmenitiesCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -19,12 +20,24 @@ const AmenitiesCarousel = () => {
   };
 
   return (
-    <section style={{padding: '4rem 2rem', backgroundColor: 'white'}}>
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      style={{padding: '4rem 2rem', backgroundColor: 'white'}}>
       <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-        <h2 style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>
+        <motion.h2 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>
           Amenidades de Habitaciones
-        </h2>
-        <div style={{position: 'relative', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)'}}>
+        </motion.h2>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{position: 'relative', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)'}}>
           <div style={{display: 'flex', transform: `translateX(-${currentSlide * 100}%)`, transition: 'transform 0.5s ease-in-out'}}>
             {amenities.map((amenity, i) => (
               <div key={i} style={{minWidth: '100%', position: 'relative'}}>
@@ -43,9 +56,9 @@ const AmenitiesCarousel = () => {
               <button key={i} onClick={() => setCurrentSlide(i)} style={{width: '12px', height: '12px', borderRadius: '50%', border: 'none', backgroundColor: currentSlide === i ? '#C89F5D' : 'rgba(255,255,255,0.5)', cursor: 'pointer'}} />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -68,12 +81,24 @@ const ExperiencesCarousel = () => {
   };
 
   return (
-    <section style={{padding: '4rem 2rem', backgroundColor: '#001F3F', color: '#F9F5E7'}}>
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      style={{padding: '4rem 2rem', backgroundColor: '#001F3F', color: '#F9F5E7'}}>
       <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-        <h2 style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', marginBottom: '3rem'}}>
+        <motion.h2 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', marginBottom: '3rem'}}>
           Experiencias Únicas
-        </h2>
-        <div style={{position: 'relative', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.3)'}}>
+        </motion.h2>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{position: 'relative', overflow: 'hidden', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.3)'}}>
           <div style={{display: 'flex', transform: `translateX(-${currentSlide * 100}%)`, transition: 'transform 0.5s ease-in-out'}}>
             {experiences.map((experience, i) => (
               <div key={i} style={{minWidth: '100%', position: 'relative'}}>
@@ -92,45 +117,81 @@ const ExperiencesCarousel = () => {
               <button key={i} onClick={() => setCurrentSlide(i)} style={{width: '12px', height: '12px', borderRadius: '50%', border: 'none', backgroundColor: currentSlide === i ? '#C89F5D' : 'rgba(255,255,255,0.5)', cursor: 'pointer'}} />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
 function App() {
   return (
     <div>
-      <nav style={{position: 'fixed', top: 0, width: '100%', backgroundColor: '#001F3F', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 1000, boxShadow: '0 2px 10px rgba(0,0,0,0.3)'}}>
-        <div style={{fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', fontWeight: 'bold', color: '#C89F5D'}}>VistaBella</div>
-        <button style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: '0.5rem 0.8rem', border: 'none', borderRadius: '20px', fontWeight: 'bold', cursor: 'pointer', fontSize: 'clamp(0.7rem, 2vw, 0.85rem)', position: 'relative', right: 'clamp(1rem, 8vw, 4rem)'}}>Reservar</button>
-      </nav>
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{position: 'fixed', top: 0, width: '100%', backgroundColor: '#001F3F', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 1000, boxShadow: '0 2px 10px rgba(0,0,0,0.3)'}}>
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          style={{fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', fontWeight: 'bold', color: '#C89F5D'}}>VistaBella</motion.div>
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: '0.5rem 0.8rem', border: 'none', borderRadius: '20px', fontWeight: 'bold', cursor: 'pointer', fontSize: 'clamp(0.7rem, 2vw, 0.85rem)', position: 'relative', right: 'clamp(1rem, 8vw, 4rem)'}}>Reservar</motion.button>
+      </motion.nav>
 
       <section style={{height: '100vh', backgroundImage: 'url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&h=1080&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: '#F9F5E7'}}>
         <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 31, 63, 0.6)'}}></div>
         <div style={{position: 'relative', zIndex: 1}}>
-          <h1 style={{fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: 'bold', marginBottom: '1rem'}}>Hotel <span style={{color: '#C89F5D'}}>VistaBella</span></h1>
-          <p style={{fontSize: 'clamp(1rem, 3vw, 1.3rem)', marginBottom: '2rem', opacity: 0.9}}>Vive el lujo frente al mar</p>
-          <button style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: 'clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem)', border: 'none', borderRadius: '30px', fontSize: 'clamp(1rem, 2.5vw, 1.1rem)', fontWeight: 'bold', cursor: 'pointer'}}>Explorar Hotel</button>
+          <motion.h1 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            style={{fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: 'bold', marginBottom: '1rem'}}>Hotel <span style={{color: '#C89F5D'}}>VistaBella</span></motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            style={{fontSize: 'clamp(1rem, 3vw, 1.3rem)', marginBottom: '2rem', opacity: 0.9}}>Vive el lujo frente al mar</motion.p>
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 1.5 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{backgroundColor: '#C89F5D', color: '#001F3F', padding: 'clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem)', border: 'none', borderRadius: '30px', fontSize: 'clamp(1rem, 2.5vw, 1.1rem)', fontWeight: 'bold', cursor: 'pointer'}}>Explorar Hotel</motion.button>
         </div>
       </section>
 
       <section style={{padding: '4rem 2rem', backgroundColor: '#F9F5E7'}}>
         <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-          <h2 style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Nuestras Habitaciones</h2>
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Nuestras Habitaciones</motion.h2>
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'}}>
             {['Suite Presidencial', 'Habitación Deluxe', 'Vista al Mar'].map((room, i) => (
-              <div key={i} style={{backgroundColor: 'white', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.25)', transition: 'transform 0.3s ease'}}>
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                style={{backgroundColor: 'white', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.25)'}}>
                 <div style={{height: '200px', background: `url('https://images.unsplash.com/photo-${i === 0 ? '1582719478250-c89cae4dc85b' : i === 1 ? '1566665797739-1674de7a421a' : '1571896349842-33c89424de2d'}?w=400&h=200&fit=crop') center/cover`}}></div>
                 <div style={{padding: '1.5rem'}}>
                   <h3 style={{fontSize: '1.4rem', fontWeight: 'bold', color: '#001F3F', marginBottom: '0.5rem'}}>{room}</h3>
                   <p style={{color: '#666', marginBottom: '1rem'}}>{i === 0 ? 'Lujo absoluto con vista panorámica' : i === 1 ? 'Elegancia y comodidad en cada detalle' : 'Despierta con el sonido de las olas'}</p>
                   <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                     <span style={{fontSize: '1.3rem', fontWeight: 'bold', color: '#C89F5D'}}>${i === 0 ? '500' : i === 1 ? '300' : '200'}/noche</span>
-                    <button style={{backgroundColor: '#001F3F', color: '#F9F5E7', padding: '0.5rem 1rem', border: 'none', borderRadius: '20px', cursor: 'pointer'}}>Ver más</button>
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{backgroundColor: '#001F3F', color: '#F9F5E7', padding: '0.5rem 1rem', border: 'none', borderRadius: '20px', cursor: 'pointer'}}>Ver más</motion.button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -141,14 +202,24 @@ function App() {
 
       <section style={{padding: '4rem 2rem', backgroundColor: '#F9F5E7'}}>
         <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-          <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Opiniones de Huéspedes</h2>
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Opiniones de Huéspedes</motion.h2>
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'}}>
             {[
               {name: 'María González', location: 'Madrid, España', text: 'Una experiencia inolvidable. El hotel supera todas las expectativas.', stars: 5},
               {name: 'John Smith', location: 'New York, USA', text: 'The experience was amazing. Luxury redefined.', stars: 5},
               {name: 'Sophie Laurent', location: 'Paris, France', text: 'Un séjour magnifique avec une vue spectaculaire.', stars: 5}
             ].map((review, i) => (
-              <div key={i} style={{backgroundColor: 'white', padding: '2rem', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)'}}>
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 50, rotateX: -30 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                style={{backgroundColor: 'white', padding: '2rem', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)'}}>
                 <div style={{display: 'flex', marginBottom: '1rem'}}>
                   {[...Array(review.stars)].map((_, j) => (
                     <span key={j} style={{color: '#C89F5D', fontSize: '1.2rem'}}>⭐</span>
@@ -159,7 +230,7 @@ function App() {
                   <h4 style={{fontWeight: 'bold', color: '#001F3F'}}>{review.name}</h4>
                   <p style={{color: '#999', fontSize: '0.9rem'}}>{review.location}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -167,7 +238,11 @@ function App() {
 
       <section style={{padding: '4rem 2rem', backgroundColor: 'white'}}>
         <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-          <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Nuestra Ubicación</h2>
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', color: '#001F3F', marginBottom: '3rem'}}>Nuestra Ubicación</motion.h2>
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center'}}>
             <div>
               <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#001F3F', marginBottom: '1rem'}}>Santa Marta, Colombia</h3>
@@ -187,8 +262,16 @@ function App() {
 
       <section style={{padding: '4rem 2rem', backgroundColor: '#0B0B0B', color: '#F9F5E7'}}>
         <div style={{maxWidth: '800px', margin: '0 auto'}}>
-          <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '2rem'}}>Reserva tu Estadía</h2>
-          <div style={{backgroundColor: 'rgba(249, 245, 231, 0.1)', padding: '2rem', borderRadius: '20px', border: '1px solid rgba(249, 245, 231, 0.2)'}}>
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '2rem'}}>Reserva tu Estadía</motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{backgroundColor: 'rgba(249, 245, 231, 0.1)', padding: '2rem', borderRadius: '20px', border: '1px solid rgba(249, 245, 231, 0.2)'}}>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginBottom: '2rem'}}>
               <div>
                 <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: 'bold'}}>Check-in</label>
@@ -199,8 +282,11 @@ function App() {
                 <input type="date" style={{width: '100%', padding: '0.8rem', borderRadius: '10px', border: '1px solid rgba(249, 245, 231, 0.3)', backgroundColor: 'rgba(249, 245, 231, 0.2)', color: '#F9F5E7'}} />
               </div>
             </div>
-            <button style={{width: '100%', backgroundColor: '#C89F5D', color: '#001F3F', padding: '1rem', border: 'none', borderRadius: '15px', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer'}}>Confirmar Reserva</button>
-          </div>
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{width: '100%', backgroundColor: '#C89F5D', color: '#001F3F', padding: '1rem', border: 'none', borderRadius: '15px', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer'}}>Confirmar Reserva</motion.button>
+          </motion.div>
         </div>
       </section>
 
